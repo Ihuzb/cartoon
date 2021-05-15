@@ -30,8 +30,8 @@ module.exports = function selectInfo(pool, item) {
 async function selectImg(page, item) {
     let herfList = [], maxPage = parseInt(item.page);
     for (let i = 1; i <= maxPage; i++) {
-        await page.waitFor(1000);
-        // await page.waitForSelector('img');
+        await page.waitForTimeout(1000);
+        await page.waitForSelector('img');
         let commentDom = await page.$('#next');//翻页信息
         const imgDom = await page.$('#tbCenter');//图片信息
         let imgHref = await page.evaluate((e) => {
@@ -41,7 +41,7 @@ async function selectImg(page, item) {
         herfList.push(imgHref);
         await commentDom.click();
     }
-    console.log(herfList);
+    // console.log(herfList);
     return herfList;
 }
 

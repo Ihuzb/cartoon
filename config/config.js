@@ -1,6 +1,6 @@
 module.exports = {
     //并发数
-    maxParallel: 1,
+    maxParallel: 5,
     //关闭页面等待时间
     waitTime: 1500,
     //各页面url

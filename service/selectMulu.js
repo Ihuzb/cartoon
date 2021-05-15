@@ -35,7 +35,7 @@ async function selectDom(page) {
         let herfList = mulu.map(v => ({
             href: v.getAttribute('href'),
             title: v.getAttribute('title'),
-            page: v.getElementsByTagName('i')[0].innerText
+            page: Number(v.getElementsByTagName('i')[0].innerText.replace(/p/g,''))
         }));
         herfList = herfList.filter(v => v.title.indexOf('话') > -1 && v.title.length <= 4).sort((a, b) => a.title.split('话')[0] - b.title.split('话')[0]);
         herfList.forEach(v => {
