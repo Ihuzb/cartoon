@@ -30,6 +30,7 @@ module.exports = function selectInfo(pool, item) {
 async function selectImg(page, item) {
     let herfList = [], maxPage = parseInt(item.page);
     for (let i = 1; i <= maxPage; i++) {
+        await page.waitForNavigation();
         await page.waitForTimeout(1000);
         await page.waitForSelector('img');
         let commentDom = await page.$('#next');//翻页信息
